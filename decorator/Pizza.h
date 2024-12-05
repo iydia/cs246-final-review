@@ -14,11 +14,12 @@ class Pizza {
 
     public:
         // Ctor
+        Pizza();
         Pizza(float price, string desc);
 
         // Virtual Dtor
         virtual ~Pizza();
-        
+
         virtual string pizzaDesc() const = 0;
         virtual float pizzaPrice() const = 0;
 };
