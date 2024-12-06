@@ -1,12 +1,15 @@
 export module BST;
 
 import <iostream>;
+import <string>;
+
 using namespace std;
 
 export class BST {
-    int data;
-    BST *left;
-    BST *right;
+    protected:
+        int data;
+        BST *left;
+        BST *right;
     public:
         BST(); // Constructor
         BST(int data, BST* left, BST* right); // Constructor with fields
@@ -29,5 +32,7 @@ export class BST {
         void setRight(BST* newRight) { right = newRight; }
 };
 
-istream& operator>>(istream& in, const BST& bt); // Input Operator. Makes a tree with like the binary search stuff
+void addToBST(BST& bt, int newData); 
+istream& operator>>(istream& in, BST& bt); // Input Operator. Makes a tree with like the binary search stuff
+void printInOrder(ostream& out, const BST* node);
 ostream& operator<<(ostream& out, const BST& bt); // Output Operator. Prints the tree..?? Hopefully.

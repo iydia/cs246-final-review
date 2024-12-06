@@ -85,7 +85,7 @@ void addToBST(BST& bt, int newData) {
     }
 }
 
-istream& operator>>(istream& in, const BST& bt) {
+istream& operator>>(istream& in, BST& bt) {
     int readInt;
     while (in >> readInt) {
         addToBST(bt, readInt);
@@ -93,14 +93,14 @@ istream& operator>>(istream& in, const BST& bt) {
     return in;
 }
 
-void printInorder(ostream& out, const BST* node) {
+void printInOrder(ostream& out, const BST* node) {
     if (!node) return;              // Base case: do nothing for null nodes
-    printInorder(out, node->left);  // Print left subtree
-    out << node->getData() << " ";       // Print current node's data
-    printInorder(out, node->right); // Print right subtree
+    printInOrder(out, node->getLeft());  // Print left subtree
+    out << node->getData() << " ";  // Print current node's data
+    printInOrder(out, node->getRight()); // Print right subtree
 }
 
 ostream& operator<<(ostream& out, const BST& bt) {
-    printInorder(out, &bt);
+    printInOrder(out, &bt);
     return out;
 }
