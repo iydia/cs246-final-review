@@ -9,6 +9,8 @@ class ConcreteObserver : public Observer {
     // typically, a pointer field implies has-a ownership
 
     public:
+        ConcreteObserver(ConcreteSubject* s);
+        ~ConcreteObserver();
         void notify() const override;
 };
 
