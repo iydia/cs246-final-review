@@ -1,6 +1,6 @@
 CXX = g++-11
 CXXFLAGS = -std=c++20 -Wall -MMD -g
-EXEC = exec
+EXEC = myexec
 OBJECTS = main.o observer.o subject.o assignment.o cs246.o student.o
 DEPENDS = ${OBJECTS:.o=.d}
 
