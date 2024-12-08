@@ -18,8 +18,8 @@ But when copying into an existing object, it for some reason will call the super
 */
 
 export class AbstractBook {
-    std::string title;
-    std::string author;
+    string title;
+    string author;
     int pages;
     public:
         // various ctors
@@ -32,7 +32,7 @@ export class AbstractBook {
         // copy and move ctor not affected by partial/mixed asst
         AbstractBook(const AbstractBook& other);
         AbstractBook(AbstractBook&& other);
-    protected:
+    protected: // protected because subclasses need to see it only for their own move copy asst
         // copy asst in # for preventing partial/mixed assignment
         AbstractBook& operator=(const AbstractBook& other);
         AbstractBook& operator=(AbstractBook&& other);
@@ -40,7 +40,7 @@ export class AbstractBook {
 
 // Book, comic, and text all inherit from AbstractBook
 
-class Book : public AbstractBook {
+export class Book : public AbstractBook {
     public:
         // various ctors
         Book();
@@ -57,7 +57,7 @@ class Book : public AbstractBook {
         Book& operator=(Book&& other);
 };
 
-class Text : public AbstractBook {
+export class Text : public AbstractBook {
     string subject;
         // various ctors
         Text();
