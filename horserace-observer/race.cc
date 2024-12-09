@@ -37,7 +37,12 @@ class Subject {
 
 // Concrete Observer, a Bettor
 class Bettor : public Observer {
+    HorseRace* subject;
+    string name, myhorse;
     public:
+    Bettor(HorseRace* subject, string name, string myhorse) : subject{subject}, name{name}, myhorse{myhorse} {
+        subject->attach(this);
+    }
         void notify() override {
             cout << "winnter" << endl;
         }

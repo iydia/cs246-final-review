@@ -22,4 +22,19 @@ int main() {
         cout << "Range error: " << e.what() << endl;
         cout << "If this sentence prints, an exception was found. Catch block has executed" << endl;
     }
+
+    int i = 10;
+    int j = 9;
+    int k = -1;
+
+    vector<int> v(10, 8);
+
+    try {
+        cout << v.at(j) << " gyatt" << endl;
+        cout << v.at(k) << " rizz" << endl;
+        cout << v.at(i) << " sigma" << endl;
+    } catch (std::out_of_range &e) {
+        cerr << "heheheha " << e.what() << endl;
+        cout << "gyah" << endl;
+    }
 }
